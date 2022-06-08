@@ -1,0 +1,33 @@
+// Default variable overrides
+$primary: #FDC000;
+$container-max-widths: (
+  sm: 540px,
+  md: 704px,
+  lg: 924px,
+  xl: 1140px,
+  xxl: 1364px
+);
+
+// Required
+@import "../../node_modules/bootstrap/scss/functions";
+// 재정의 하고싶은 색상은 variables위에 작성을 해줘야됨!!
+// node_modules/bootstrap/scss/variables 경로로 들어가보면 기본적인 변수들 확인가능
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// 정의되어지지 않는 변수를 사용을 하게되면 에러가 발생 
+// 그렇기 때문에 theme-colors 변경시에는 해당위치에 작성하며, 
+// 만약에 모든 변수를 바꿨다면 Required위에 작성
+// $theme-colors: (
+//   "primary":    $primary,
+//   "secondary":  $secondary,
+//   "success":    $success,
+//   "info":       $info,
+//   "warning":    $warning,
+//   "danger":     $danger,
+//   "light":      $light,
+//   "dark":       $dark
+// ) 
+
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
