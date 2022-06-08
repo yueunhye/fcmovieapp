@@ -143,30 +143,31 @@ export default {
 
 }
 // _는 현재파일내부에서만 사용
-function _fetchMovie(payload) {
-  const {
-    title,
-    type,
-    page,
-    year,
-    id
-  } = payload
-  const OMDB_API_KEY = '7035c60c'
-  // 삼항연산자. searchMovieWithId 영화정보 가져올때 
-  const url = id ?
-    `https://www.omdbapi.com?apikey=${OMDB_API_KEY}&i=${id}` :
-    `https://www.omdbapi.com?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
+async function _fetchMovie(payload) {
+  return await axios.post('/.netlify/functions/movie', payload)
+  // const {
+  //   title,
+  //   type,
+  //   page,
+  //   year,
+  //   id
+  // } = payload
+  // const OMDB_API_KEY = '7035c60c'
+  // // 삼항연산자. searchMovieWithId 영화정보 가져올때 
+  // const url = id ?
+  //   `https://www.omdbapi.com?apikey=${OMDB_API_KEY}&i=${id}` :
+  //   `https://www.omdbapi.com?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
 
-  return new Promise((resolve, reject) => {
-    axios.get(url)
-      .then((res) => {
-        if (res.data.Error) {
-          reject(res.data.Error)
-        }
-        resolve(res)
-      })
-      .catch((err) => {
-        reject(err.message)
-      })
-  })
+  // return new Promise((resolve, reject) => {
+  //   axios.get(url)
+  //     .then((res) => {
+  //       if (res.data.Error) {
+  //         reject(res.data.Error)
+  //       }
+  //       resolve(res)
+  //     })
+  //     .catch((err) => {
+  //       reject(err.message)
+  //     })
+  // })
 }
